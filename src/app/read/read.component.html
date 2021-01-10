@@ -1,0 +1,15 @@
+<p>read works!</p>
+
+<div class="right" *ngIf="tutorials">
+
+    <h3>Tutorials</h3>
+    <ul>
+        <li *ngFor="let tutorial of tutorials | async; index as i">
+            <a [href]="tutorial.url" target="_blank">{{ tutorial.name }}</a> &nbsp;&nbsp;
+            <p style="display:inline">{{ tutorial.status }}</p> &nbsp;&nbsp;
+            <button type="button" (click)="deleteTutorial(i)" class='btn btn-danger'>Delete</button>&nbsp;&nbsp;
+            <button type="button" (click)="updateTutorial(i)" class='btn btn-info'>Update</button>
+        </li>
+    </ul>
+
+</div>
