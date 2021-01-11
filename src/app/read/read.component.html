@@ -4,12 +4,12 @@
 
     <h3>Tutorials</h3>
     <ul>
-        <li *ngFor="let tutorial of tutorials | async; index as i">
-            <a [href]="tutorial.url" target="_blank">{{ tutorial.name }}</a> &nbsp;&nbsp;
+        <li *ngFor="let tutorial of tutorials; index as i">
+            <input type="text" *ngIf="update[i]" [(ngModel)]="value[i]">
+            <a [href]="tutorial.url" target="_blank" *ngIf="!update[i]">{{ tutorial.name }}</a> &nbsp;&nbsp;
             <p style="display:inline">{{ tutorial.status }}</p> &nbsp;&nbsp;
-            <button type="button" (click)="deleteTutorial(i)" class='btn btn-danger'>Delete</button>&nbsp;&nbsp;
-            <button type="button" (click)="updateTutorial(i)" class='btn btn-info'>Update</button>
+            <input type="button" (click)="deleteTutorial(i)" class='btn btn-danger' value="Delete">&nbsp;&nbsp;
+            <input type="button" (click)="updateTutorial(i,updateBtn,tutorial.url)" class='btn btn-info' [value]="btnLabel[i]" #updateBtn>
         </li>
     </ul>
-
 </div>

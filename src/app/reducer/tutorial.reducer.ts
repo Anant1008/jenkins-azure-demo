@@ -19,11 +19,11 @@ export function reducer(state: Tutorial[] = [initialState], action: TutorialActi
         case TutorialActions.REMOVE_TUTORIAL:
             return [...state.slice(0, action.payload), ...state.slice(action.payload + 1)];
         case TutorialActions.UPDATE_TUTORIAL:
-            console.log(state[action.payload]);
-            let temp:Tutorial=state[action.payload];
+            console.log(state[action.payload.index]);
+            //let temp:Tutorial=state[action.payload.index];
            // temp.status=true;
-            console.log(temp);
-            return [...state.slice(0,action.payload),{name:temp.name,url:temp.url,status:true},...state.slice(action.payload+1)];
+            //console.log(temp);
+            return [...state.slice(0,action.payload.index),{name:action.payload.obj.name,url:action.payload.obj.url,status:true},...state.slice(action.payload.index+1)];
         default:
             return state;
     }

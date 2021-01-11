@@ -7,6 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducer/tutorial.reducer';
 import { CreateComponent } from './create/create.component';
 import { ReadComponent } from './read/read.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ReadComponent } from './read/read.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
      StoreModule.forRoot({
        tutorial:reducer

@@ -24,7 +24,7 @@ export class RemoveTutorial implements Action {
 export class UpdateTutorial implements Action{
     readonly type = UPDATE_TUTORIAL
 
-    constructor(public payload: number){}
+    constructor(public payload: {obj:Tutorial,index:number}){}
 }
 
 // Section 4
